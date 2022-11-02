@@ -1,0 +1,1 @@
+void printChars(char c, int, int);
