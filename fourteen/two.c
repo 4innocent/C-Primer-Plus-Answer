@@ -84,21 +84,35 @@ int main() {
             12
         }
     };
-    Mounth* mon;
-    printf("input the month name:\n");
-    char monthName[SIZE];
-    fgets(monthName, SIZE, stdin);
-    if (monthName[strlen(monthName) - 1] == '\n') {
-        monthName[strlen(monthName) - 1] = '\0';
-    }
+    printf("input day:");
+    int day;
+    char mounth[12];
+    char year[5];
 
-    int countDays = 0;
+    scanf("%d", &day);
+    fflush(stdin);
+    printf("input mounth:");
+    fgets(mounth, 12, stdin);
+    if (mounth[strlen(mounth) - 1] == '\n') {
+        mounth[strlen(mounth) - 1] = '\0';
+    }
+    fflush(stdin);
+    printf("input year:");
+    fgets(year, 5, stdin);
+    if (mounth[strlen(year) - 1] == '\n') {
+        mounth[strlen(year) - 1] = '\0';
+    }
+    fflush(stdin);
+
+    int days = 0;
     for (int i = 0; i < SIZE; i++) {
-        countDays += mounths[i].days;
-        if (strcmp(mounths[i].mounth, monthName) == 0) {
-            printf("days are %d", countDays);
+        if (strcmp(mounths[i].mounth, mounth) == 0) {
+            days += day;
+            printf("%d", days);
+            return 0;
         }
+        days += mounths[i].days;
     }
 
-    return 0;
+
 }
